@@ -25,8 +25,12 @@ import org.springframework.web.multipart.MultipartFile;
 import com.keepler.anonymize.components.EncryptComponent;
 import com.keepler.anonymize.components.ReadWriteFileComponent;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+
 @RestController
 @RequestMapping("/keepler")
+@Api(value = "Anonymize CSV File")
 public class AnonymizeController {
 	
 	@Autowired
@@ -38,6 +42,8 @@ public class AnonymizeController {
 	@Value("${anonymizeKeepler.anonymizeElements}")
 	private List<String> anonymizeValues;
 	
+
+	@ApiOperation(value = "Anonymize a CSV file")
 	@PostMapping("/anonymize")
     public void uploadFile(@RequestParam("file") MultipartFile file, HttpServletResponse response) {
         String fileName = "anonymize.csv";
@@ -87,6 +93,7 @@ public class AnonymizeController {
        
     }
 	
+	@ApiOperation(value = "Ping Service")
 	@GetMapping("/ping")
     public String ping() {
 		return "ping";
