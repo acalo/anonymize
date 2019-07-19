@@ -26,5 +26,3 @@ http://localhost:8087/swagger-ui.html
 
 * **Antonio Calo Chas**
 
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
-
